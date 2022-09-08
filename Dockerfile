@@ -1,6 +1,7 @@
 FROM node:14-alpine as base
 WORKDIR /usr/src/wpp-server
 ENV NODE_ENV=production PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+RUN pkg install -y libxshmfence-dev
 COPY package.json yarn.lock ./
 RUN yarn install --production --pure-lockfile && \
     yarn cache clean
