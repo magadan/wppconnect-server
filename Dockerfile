@@ -2,7 +2,7 @@ FROM sitespeedio/node:ubuntu-20.04-nodejs-16.5.0 as base
 WORKDIR /usr/src/wpp-server
 ENV NODE_ENV=production PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 RUN apt-get update
-RUN apt-get install -y yarn
+RUN apt-get install yarn -y
 COPY package.json yarn.lock ./
 RUN yarn install --production --pure-lockfile && \
     yarn cache clean
