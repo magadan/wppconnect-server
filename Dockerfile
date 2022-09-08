@@ -4,7 +4,7 @@ ENV NODE_ENV=production PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 RUN apt-get update
 RUN apt-get install yarn -y
 COPY package.json yarn.lock ./
-RUN yarn install --production --pure-lockfile && \
+RUN yarn install --pure-lockfile && \
     yarn cache clean
 
 FROM base as build
@@ -19,7 +19,7 @@ RUN yarn build
 
 FROM base
 WORKDIR /usr/src/wpp-server/
-RUN apk add --no-cache chromium
+RUN apt-get install chromium -y
 RUN yarn cache clean
 COPY . .
 COPY --from=build /usr/src/wpp-server/ /usr/src/wpp-server/
