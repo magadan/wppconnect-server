@@ -9,7 +9,6 @@ WORKDIR /usr/src/wpp-server
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 COPY package.json yarn.lock ./
 COPY . .
-RUN npm run build
 
 
 FROM base
