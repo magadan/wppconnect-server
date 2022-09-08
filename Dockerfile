@@ -13,7 +13,6 @@ COPY . .
 
 FROM base
 WORKDIR /usr/src/wpp-server/
-RUN apt-get install chromium -y
 COPY . .
 COPY --from=build /usr/src/wpp-server/ /usr/src/wpp-server/
 EXPOSE 21465
