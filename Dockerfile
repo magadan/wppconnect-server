@@ -1,5 +1,6 @@
 FROM sitespeedio/node:ubuntu-20.04-nodejs-16.5.0 as base
 WORKDIR /usr/src/wpp-server
+RUN cd /usr/src/wpp-server && npm install
 ENV NODE_ENV=production PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 RUN apt-get update
 COPY package.json yarn.lock ./
