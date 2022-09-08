@@ -9,13 +9,12 @@ WORKDIR /usr/src/wpp-server
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 COPY package.json yarn.lock ./
 COPY . .
-RUN npm build
+RUN npm run build
 
 
 FROM base
 WORKDIR /usr/src/wpp-server/
 RUN apt-get install chromium -y
-RUN yarn cache clean
 COPY . .
 COPY --from=build /usr/src/wpp-server/ /usr/src/wpp-server/
 EXPOSE 21465
