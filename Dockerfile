@@ -1,4 +1,4 @@
-FROM node:ubuntu-20.04-nodejs-16.16.0 as base
+FROM sitespeedio/node:ubuntu-20.04-nodejs-16.13.1 as base
 WORKDIR /usr/src/wpp-server
 ENV NODE_ENV=production PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 COPY package.json yarn.lock ./
